@@ -23,9 +23,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <body>
     <h1>A Servlet Sample</h1>
     <hr>
-    <a href="servlet/HelloServlet">request HelloServlet via GET.</a>
+    <a href="servlet/HelloServlet">request HelloServlet via GET.</a><br>
+    <a href="servlet/JSONServlet">This is a Servlet provided in JSON.</a>
     <form action="servlet/HelloServlet" method="post">
       <input type="submit" value = "Post 方式提交">
+    </form>
+    <form action="servlet/JSONServlet" method="post">
+    	<input type="submit" value = "Post 方式提交JSONServlet">
     </form>
   </body>
 </html>

@@ -2,12 +2,14 @@
 <!DOCTYPE beans PUBLIC    
     "-//SPRING//DTD BEAN//EN"   
     "http://www.springframework.org/dtd/spring-beans.dtd">  
-<beans >
+<beans
+	default-autowire="byName">
 
 	<!-- 数据源配置 -->
     <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+    	<!-- <property name="url" value="jdbc:mysql:///springjdbccreateDataBaseIfNotExist=true"></property> -->
         <property name="driverClassName" value="com.mysql.jdbc.Driver"></property>
-        <property name="url" value="jdbc:mysql://localhost:3306/test"></property>
+        <property name="url" value="jdbc:mysql://localhost:3306/whaleDB?createDatabaseIfNotExist=true"></property>
         <property name="username" value="root"></property>
         <property name="password" value="root"></property>
     </bean> 
@@ -26,6 +28,11 @@
     	<property name="userDAO" ref="userDAO"></property>
     </bean>
 	<bean id="signUpService" class="org.test.struts.service.impl.SignUpServiceImp">
+		<property name="userDAO" ref="userDAO"></property>
+	</bean>
+	
+	<!-- servlet user userDAO -->
+	<bean id="jsonServlet" class="servlet.JSONServlet">
 		<property name="userDAO" ref="userDAO"></property>
 	</bean>
     

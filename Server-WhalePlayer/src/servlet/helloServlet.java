@@ -13,7 +13,6 @@ public class helloServlet extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
-		// TODO Auto-generated method stub
 //		super.doGet(req, resp);
 		System.out.println("处理Get()请求...");
 		PrintWriter out = resp.getWriter();
@@ -24,7 +23,6 @@ public class helloServlet extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		System.out.println("处理post()请求...");
 		PrintWriter out = resp.getWriter();
 		resp.setContentType("text/html;charset=utf-8");
