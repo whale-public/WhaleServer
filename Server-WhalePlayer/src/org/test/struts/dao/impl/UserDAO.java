@@ -23,7 +23,7 @@ public class UserDAO implements IUserDAO {
 	@Override
 	public boolean checkUser(String username, String password) {
 		// TODO Auto-generated method stub
-		System.out.println("dao starting ，，，，， ");
+		System.out.println("dao starting checkUser ");
 		String sql = "select count(*) from user where username=? and password=? ";
 		@SuppressWarnings("deprecation")
 		int count = jdbcTemplate.queryForInt(sql, new Object[] { username,password });
@@ -38,5 +38,15 @@ public class UserDAO implements IUserDAO {
 		int cout = jdbcTemplate.update(sql, new Object[] {userName,password});
 		System.out.println("insert done : count = "+cout);
 		return cout;
+	}
+
+	@Override
+	public boolean checkUsernameRepeat(String username) {
+		System.out.println("dao checkUsernameRepeat starting check ");
+		String sql = "select count(*) from user where username=? ";
+		@SuppressWarnings("deprecation")
+		int count = jdbcTemplate.queryForInt(sql, new Object[] { username });
+
+		return count>0;
 	}
 }
