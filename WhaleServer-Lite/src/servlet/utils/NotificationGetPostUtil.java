@@ -6,7 +6,7 @@ import java.util.*;
 
 /**
  * Description:
- * <br/>ç½‘ç«™: <a href="http://www.crazyit.org">ç–¯ç‹‚Javaè”ç›Ÿ</a> 
+ * <br/>ÍøÕ¾: <a href="http://www.crazyit.org">·è¿ñJavaÁªÃË</a> 
  * <br/>Copyright (C), 2001-2010, Yeeku.H.Lee
  * <br/>This program is protected by copyright laws.
  * <br/>Program Name:
@@ -19,13 +19,13 @@ public class NotificationGetPostUtil
 {
 	public static final String NOTIFICATION_SERVER = "http://localhost:8080/";
 	/**
-	 * å‘æŒ‡å®šURLå‘é€GETæ–¹æ³•çš„è¯·æ±‚
+	 * ÏòÖ¸¶¨URL·¢ËÍGET·½·¨µÄÇëÇó
 	 * 
 	 * @param url
-	 *            å‘é€è¯·æ±‚çš„URL
+	 *            ·¢ËÍÇëÇóµÄURL
 	 * @param params
-	 *            è¯·æ±‚å‚æ•°ï¼Œè¯·æ±‚å‚æ•°åº”è¯¥æ˜¯name1=value1&name2=value2çš„å½¢å¼ã€‚
-	 * @return URLæ‰€ä»£è¡¨è¿œç¨‹èµ„æºçš„å“åº”
+	 *            ÇëÇó²ÎÊı£¬ÇëÇó²ÎÊıÓ¦¸ÃÊÇname1=value1&name2=value2µÄĞÎÊ½¡£
+	 * @return URLËù´ú±íÔ¶³Ì×ÊÔ´µÄÏìÓ¦
 	 */
 	public static String sendGet(String url, String params)
 	{
@@ -35,23 +35,23 @@ public class NotificationGetPostUtil
 		{
 			String urlName = url + "?" + params;
 			URL realUrl = new URL(urlName);
-			// æ‰“å¼€å’ŒURLä¹‹é—´çš„è¿æ¥
+			// ´ò¿ªºÍURLÖ®¼äµÄÁ¬½Ó
 			URLConnection conn = realUrl.openConnection();
-			// è®¾ç½®é€šç”¨çš„è¯·æ±‚å±æ€§
+			// ÉèÖÃÍ¨ÓÃµÄÇëÇóÊôĞÔ
 			conn.setRequestProperty("accept", "*/*");
 			conn.setRequestProperty("connection", "Keep-Alive");
 			conn.setRequestProperty("user-agent",
 				"Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1)");
-			// å»ºç«‹å®é™…çš„è¿æ¥
+			// ½¨Á¢Êµ¼ÊµÄÁ¬½Ó
 			conn.connect();
-			// è·å–æ‰€æœ‰å“åº”å¤´å­—æ®µ
+			// »ñÈ¡ËùÓĞÏìÓ¦Í·×Ö¶Î
 			Map<String, List<String>> map = conn.getHeaderFields();
-			// éå†æ‰€æœ‰çš„å“åº”å¤´å­—æ®µ
+			// ±éÀúËùÓĞµÄÏìÓ¦Í·×Ö¶Î
 			for (String key : map.keySet())
 			{
 				System.out.println(key + "--->" + map.get(key));
 			}
-			// å®šä¹‰BufferedReaderè¾“å…¥æµæ¥è¯»å–URLçš„å“åº”
+			// ¶¨ÒåBufferedReaderÊäÈëÁ÷À´¶ÁÈ¡URLµÄÏìÓ¦
 			in = new BufferedReader(
 				new InputStreamReader(conn.getInputStream()));
 			String line;
@@ -62,10 +62,10 @@ public class NotificationGetPostUtil
 		}
 		catch (Exception e)
 		{
-			System.out.println("å‘é€GETè¯·æ±‚å‡ºç°å¼‚å¸¸ï¼" + e);
+			System.out.println("·¢ËÍGETÇëÇó³öÏÖÒì³££¡" + e);
 			e.printStackTrace();
 		}
-		// ä½¿ç”¨finallyå—æ¥å…³é—­è¾“å…¥æµ
+		// Ê¹ÓÃfinally¿éÀ´¹Ø±ÕÊäÈëÁ÷
 		finally
 		{
 			try
@@ -84,13 +84,13 @@ public class NotificationGetPostUtil
 	}
 
 	/**
-	 * å‘æŒ‡å®šURLå‘é€POSTæ–¹æ³•çš„è¯·æ±‚
+	 * ÏòÖ¸¶¨URL·¢ËÍPOST·½·¨µÄÇëÇó
 	 * 
 	 * @param url
-	 *            å‘é€è¯·æ±‚çš„URL
+	 *            ·¢ËÍÇëÇóµÄURL
 	 * @param params
-	 *            è¯·æ±‚å‚æ•°ï¼Œè¯·æ±‚å‚æ•°åº”è¯¥æ˜¯name1=value1&name2=value2çš„å½¢å¼ã€‚
-	 * @return URLæ‰€ä»£è¡¨è¿œç¨‹èµ„æºçš„å“åº”
+	 *            ÇëÇó²ÎÊı£¬ÇëÇó²ÎÊıÓ¦¸ÃÊÇname1=value1&name2=value2µÄĞÎÊ½¡£
+	 * @return URLËù´ú±íÔ¶³Ì×ÊÔ´µÄÏìÓ¦
 	 */
 	public static String sendPost(String url, String params)
 	{
@@ -100,23 +100,23 @@ public class NotificationGetPostUtil
 		try
 		{
 			URL realUrl = new URL(url);
-			// æ‰“å¼€å’ŒURLä¹‹é—´çš„è¿æ¥
+			// ´ò¿ªºÍURLÖ®¼äµÄÁ¬½Ó
 			URLConnection conn = realUrl.openConnection();
-			// è®¾ç½®é€šç”¨çš„è¯·æ±‚å±æ€§
+			// ÉèÖÃÍ¨ÓÃµÄÇëÇóÊôĞÔ
 			conn.setRequestProperty("accept", "*/*");
 			conn.setRequestProperty("connection", "Keep-Alive");
 			conn.setRequestProperty("user-agent",
 				"Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1)");
-			// å‘é€POSTè¯·æ±‚å¿…é¡»è®¾ç½®å¦‚ä¸‹ä¸¤è¡Œ
+			// ·¢ËÍPOSTÇëÇó±ØĞëÉèÖÃÈçÏÂÁ½ĞĞ
 			conn.setDoOutput(true);
 			conn.setDoInput(true);
-			// è·å–URLConnectionå¯¹è±¡å¯¹åº”çš„è¾“å‡ºæµ
+			// »ñÈ¡URLConnection¶ÔÏó¶ÔÓ¦µÄÊä³öÁ÷
 			out = new PrintWriter(conn.getOutputStream());
-			// å‘é€è¯·æ±‚å‚æ•°
+			// ·¢ËÍÇëÇó²ÎÊı
 			out.print(params); // params.toString().getBytes("UTF-8");
-			// flushè¾“å‡ºæµçš„ç¼“å†²
+			// flushÊä³öÁ÷µÄ»º³å
 			out.flush();
-			// å®šä¹‰BufferedReaderè¾“å…¥æµæ¥è¯»å–URLçš„å“åº”
+			// ¶¨ÒåBufferedReaderÊäÈëÁ÷À´¶ÁÈ¡URLµÄÏìÓ¦
 			in = new BufferedReader(
 				new InputStreamReader(conn.getInputStream()));
 			String line;
@@ -127,10 +127,10 @@ public class NotificationGetPostUtil
 		}
 		catch (Exception e)
 		{
-			System.out.println("å‘é€POSTè¯·æ±‚å‡ºç°å¼‚å¸¸ï¼" + e);
+			System.out.println("·¢ËÍPOSTÇëÇó³öÏÖÒì³££¡" + e);
 			e.printStackTrace();
 		}
-		// ä½¿ç”¨finallyå—æ¥å…³é—­è¾“å‡ºæµã€è¾“å…¥æµ
+		// Ê¹ÓÃfinally¿éÀ´¹Ø±ÕÊä³öÁ÷¡¢ÊäÈëÁ÷
 		finally
 		{
 			try
@@ -164,15 +164,15 @@ public class NotificationGetPostUtil
 			httpConn.setDoInput(true);
 			httpConn.setRequestMethod(method); // POST/GET
 
-			// å‘é€è¯·æ±‚å‚æ•°
+			// ·¢ËÍÇëÇó²ÎÊı
 			httpConn.getOutputStream().write(
 					parameter.toString().getBytes("UTF-8"));
 			httpConn.getOutputStream().flush();
 			httpConn.getOutputStream().close();
 			httpConn.getResponseCode();
-			// httpConn.getInputStream();// ä»…æ‰§è¡Œä½†ä¸è·å–è¿”å›å†…å®¹
+			// httpConn.getInputStream();// ½öÖ´ĞĞµ«²»»ñÈ¡·µ»ØÄÚÈİ
 
-			// å®šä¹‰BufferedReaderè¾“å…¥æµæ¥è¯»å–URLçš„å“åº”
+			// ¶¨ÒåBufferedReaderÊäÈëÁ÷À´¶ÁÈ¡URLµÄÏìÓ¦
 			in = new BufferedReader(new InputStreamReader(
 					httpConn.getInputStream()));
 			String line;
@@ -183,7 +183,7 @@ public class NotificationGetPostUtil
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		// ä½¿ç”¨finallyå—æ¥å…³é—­è¾“å…¥æµ
+		// Ê¹ÓÃfinally¿éÀ´¹Ø±ÕÊäÈëÁ÷
 		finally {
 			try {
 				if (in != null) {
