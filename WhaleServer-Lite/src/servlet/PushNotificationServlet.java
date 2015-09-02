@@ -18,7 +18,7 @@ import servlet.utils.NotificationGetPostUtil;
 /**
  * Servlet implementation class PushNotificationServlet
  */
-@WebServlet("/PushNotificationServlet")
+@WebServlet(urlPatterns={"/PushNotificationServlet","/servlet/NotificationServlet"})
 public class PushNotificationServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 

@@ -2,7 +2,7 @@
     <wb-module deploy-name="Server_Lite">
         <wb-resource deploy-path="/" source-path="/WebContent" tag="defaultRootSource"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
-        <property name="context-root" value="Server_Lite"/>
         <property name="java-output-path" value="/Server_Lite/build/classes"/>
+        <property name="context-root" value="WhaleServer"/>
     </wb-module>
 </project-modules>

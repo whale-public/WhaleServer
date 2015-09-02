@@ -17,7 +17,7 @@ import servlet.utils.UserInfoXML;
 /**
  * Servlet implementation class SignUpServlet
  */
-@WebServlet("/SignUpServlet")
+@WebServlet(urlPatterns={"/SignUpServlet","/servlet/RegisterServlet"})
 public class SignUpServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -36,8 +36,21 @@ public class SignUpServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+	
+		response.setContentType("text/html");
+		PrintWriter out = response.getWriter();
+		out.println("<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\">");
+		out.println("<HTML>");
+		out.println("  <HEAD><TITLE>"+this.getClass().getSimpleName()+"</TITLE></HEAD>");
+		out.println("  <BODY>");
+		out.print("    This is ");
+		out.print(this.getClass());
+		out.println(", using the GET method<br>");
+		out.println("Served at: "+request.getContextPath());
+		out.println("  </BODY>");
+		out.println("</HTML>");
+		out.flush();
+		out.close();
 	}
 
 	/**
