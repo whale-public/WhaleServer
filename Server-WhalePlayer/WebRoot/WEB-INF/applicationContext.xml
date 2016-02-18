@@ -5,12 +5,14 @@
 <beans
 	default-autowire="byName">
 
+	<bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer"/>
+
 	<!-- 数据源配置 -->
     <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
     	<!-- <property name="url" value="jdbc:mysql:///springjdbccreateDataBaseIfNotExist=true"></property> -->
         <property name="driverClassName" value="com.mysql.jdbc.Driver"></property>
         <!-- 数据库 url 需配置 -->
-        <property name="url" value="jdbc:mysql://mysql-zhouqiangwang.myalauda.cn:10151/whaleDB?createDatabaseIfNotExist=true"></property>
+        <property name="url" value="jdbc:mysql://${MYSQL_PORT_3306_TCP_ADDR}:${MYSQL_PORT_3306_TCP_PORT}/whaleDB?createDatabaseIfNotExist=true"></property>
         <property name="username" value="root"></property>
         <property name="password" value="root"></property>
     </bean> 
